@@ -1,0 +1,10 @@
+@reboot root /usr/local/bin/shutdown_pi.py &
+1 4 * * 2 root /sbin/shutdown -r
+45 11 1 * * pi /usr/local/bin/purgedata.sh
+15 */4 * * * pi /usr/local/bin/ftppush.pl
+* * * * * pi /usr/local/bin/outbackdata.sh > /dev/null 2>&1
+
+# uncomment the next line if using wifi for your network connection
+#*/3 * * * * pi /usr/local/bin/wifi-up.sh
+
+
